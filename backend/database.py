@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SQLALCHEMY_DATABASE_URL = os.getenv(
-    "DATABASE_URL", "postgresql://tts_user:tts_eugene@db/tts_app"
+    "DATABASE_URL", "postgresql://tts_user:tts_eugene@locahost:5433/tts_app"
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

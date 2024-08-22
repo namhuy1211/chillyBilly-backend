@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: tts_eugene
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
 
   backend:
     build: ./backend
@@ -18,7 +20,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - DATABASE_URL=postgresql://tts_user:tts_eugene@db/tts_app
+      - DATABASE_URL=postgresql://tts_user:tts_eugene@db:5432/tts_app
     depends_on:
       - db
 
